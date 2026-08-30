@@ -1,0 +1,63 @@
+; Movement and camera helpers built on top of std/gamepad's stick/angle
+; primitives and std/buttons' press/tap helpers.
+
+import "std/gamepad"
+import "std/buttons"
+
+; Resets a stick to neutral (angle 0, amount 0).
+fn stick_neutral(side) {
+    gamepad stick $side 0 0
+}
+
+; Holds the left stick at `angle`/`amount` for `frames`, then leaves it there
+; - handy when you want to keep moving after the call returns.
+fn left_stick_for(angle, amount, frames) {
+    left_stick(angle, amount)
+    wait frames
+}
+
+; Same, but recenters the stick afterwards.
+fn left_stick_hold(angle, amount, frames) {
+    left_stick_for(angle, amount, frames)
+    left_stick(0, 0)
+}
+
+fn right_stick_for(angle, amount, frames) {
+    right_stick(angle, amount)
+    wait frames
+}
+
+fn right_stick_hold(angle, amount, frames) {
+    right_stick_for(angle, amount, frames)
+    right_stick(0, 0)
+}
+
+; A roll/dodge: tilts the left stick toward `angle`, waits one frame for the
+; direction to register, then taps `button`. Leaves the stick held at `angle`
+; so you can chain more rolls or start running immediately - call
+; stick_neutral("left") yourself once you actually want to stop moving.
+fn roll(angle, button, hold) {
+    left_stick(angle, 1)
+    wait 1
+    tap_button(button, hold)
+}
+
+; Same as roll(), but takes a named direction ("up", "up_right", "right", ...)
+; like left_stick_direction() from std/gamepad instead of a raw angle.
+fn roll_direction(direction, button, hold) {
+    left_stick_direction(direction, 1)
+    wait 1
+    tap_button(button, hold)
+}
+
+; Pans the right stick (camera) toward `angle` for `frames`, then recenters.
+fn camera_pan(angle, amount, frames) {
+    right_stick_hold(angle, amount, frames)
+}
+
+; Moves the mouse by (dx, dy) and waits `frames` - convenience wrapper around
+; `mouse move` for keyboard+mouse scripts.
+fn mouse_look(dx, dy, frames) {
+    mouse move $dx $dy
+    wait frames
+}

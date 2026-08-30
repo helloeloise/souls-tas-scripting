@@ -1,0 +1,65 @@
+; Example STAS script - Dark Souls 1 (PTDE) rolling / moveswap style routine.
+; Compile with:  cargo run -- examples\rolling.stas   ->  output\rolling.tas
+
+const FORWARD    = "w"
+const ROLL_KEY   = "space"
+const ROLL_HOLD  = 2      ; frames the roll button stays pressed
+const ROLL_CYCLE = 24     ; frames between two rolls
+
+fn tap(k, hold) {
+    key down $k
+    wait $hold
+    key up $k
+}
+
+fn hold_for(k, frames) {
+    key down $k
+    wait $frames
+    key up $k
+}
+
+; One roll: hold forward, tap the roll key, then recover.
+fn roll(recovery) {
+    key down $FORWARD
+    tap($ROLL_KEY, $ROLL_HOLD)
+    wait $recovery - $ROLL_HOLD
+    key up $FORWARD
+}
+
+fn camera_turn(pixels) {
+    mouse move $pixels 0
+    wait 1
+}
+
+; --- routine ---------------------------------------------------------------
+
+await focus
+wait 20
+
+hold_for($FORWARD, 40)
+wait 10
+
+repeat 4 {
+    roll($ROLL_CYCLE)
+    wait 4
+}
+
+camera_turn(1000)
+
+; Weapon swap: R1 with the gamepad, then back to the first slot.
+gamepad button down shoulder_right
+wait 1
+gamepad button up shoulder_right
+wait 6
+
+; Attack, then reset the right stick.
+gamepad axis stick_right_x 30000
+wait 1
+gamepad axis stick_right_x 0
+
+; Absolute placement is still available when it is easier to think in frames.
+at 600
+await ingame
+key down $FORWARD
+wait 120
+key up $FORWARD

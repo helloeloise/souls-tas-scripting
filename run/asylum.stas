@@ -1,0 +1,119 @@
+; Spawning after initial quitout
+import "std/all"
+fn character_creation() {
+    tap_button("start", 1)
+    wait 10
+    tap_button("dpad_up", 1)
+    wait 10
+    tap_button("a", 2)
+    wait 10
+    tap_button("a", 2)
+    wait 40
+    tap_button("a", 2)
+    wait 10
+    tap_button("a", 2)
+    wait 10
+    tap_key("T", 2)
+    tap_key("A", 2)
+    tap_key("S", 2)
+    wait 5
+    tap_key("ENTER", 4)
+    wait 2
+    tap_button("a", 2)
+    wait 1
+    tap_button("a", 2)
+    wait 5
+    tap_button("a", 2)
+    wait 10
+    tap_button("dpad_up", 2)
+    wait 1
+    tap_button("dpad_up", 2)
+    wait 2
+    tap_button("a", 2)
+    wait 2
+    tap_button("a", 2)
+    wait 2
+    tap_button("dpad_down", 2)
+    wait 1
+    tap_button("dpad_down", 2)
+    wait 2
+    tap_button("a", 2)
+    repeat 9 {
+        wait 1
+        tap_button("a", 2)
+    }
+    wait 2
+    tap_button("dpad_left", 2)
+    wait 2
+    tap_button("a", 2)
+    wait 2
+    await cutscene
+    wait 2
+    tap_button("start", 1)
+    await no_cutscene
+    wait 1
+    await cutscene
+    tap_button("start", 1)
+
+}
+
+fn get_out_of_cell() { ; Function ends with B and Left_stick_up held
+    await ingame
+    press_button("b")
+    left_stick_up(1)
+    right_stick_left(0.5)
+    wait 25
+    
+    right_stick_left(0)
+    wait 20
+    tap_button("y", 2)
+    wait 20
+    tap_button ("a", 2) ; Pickup
+    wait 20
+    right_stick_left(0.5) ; Angle position another time to face the door for a better line 
+    tap_button("a", 2)
+    wait 22 ; Delay for walking to the door to get the prompt while angling camera
+    
+    tap_button("a", 2) ; Door interract
+    press_button("shoulder_left") ; Hold block for fast accell out of door
+    wait 4
+    right_stick_left(0)
+   
+    wait 60
+    release_button("shoulder_left")
+    
+    
+
+
+}
+
+fn go_to_ladder_1() {
+    tas_sprint(0, 20);
+    release_button("b") ; stamina regen
+    wait 20
+    tas_sprint(0, 3); This is the first turn with the hollow and the water puddle
+    right_stick_right(1)
+    wait 12 ; This is enough of a turn to be able to not fall into water and go to the ladder
+    right_stick_right(0)
+    tas_sprint(0, 2)
+    right_stick_left(0.8)
+    tas_sprint(0, 2)
+    right_stick_left(0)
+    tas_sprint(0,2)
+    tas_sprint(90, 2)
+    tap_button("r3", 1)
+    tas_sprint(0, 1)
+    tap_button("r3", 1)
+    tas_sprint(0, 2)
+    wait 5
+    repeat 6 {
+        tap_button("a", 1)
+    }
+    
+
+}
+
+nothing
+wait 100
+character_creation()
+get_out_of_cell()

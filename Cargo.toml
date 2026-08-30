@@ -1,0 +1,15 @@
+[package]
+name = "stasc"
+version = "0.1.0"
+edition = "2021"
+description = "Compiler from the STAS scripting language to SoulsTAS .tas script files"
+
+[lib]
+name = "stasc"
+path = "src/lib.rs"
+
+[[bin]]
+name = "stasc"
+path = "src/main.rs"
+
+[dependencies]

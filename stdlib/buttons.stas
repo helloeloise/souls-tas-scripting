@@ -1,0 +1,92 @@
+; Generic press/release/tap helpers for gamepad buttons, keyboard keys and
+; analog triggers. No game-specific knowledge lives here - see std/ds1 for
+; Dark Souls button names and higher level macros built on top of these.
+
+fn set_key(k, state) {
+    key $state $k
+}
+
+fn key_down(k) {
+    set_key(k, "down")
+}
+
+fn key_up(k) {
+    set_key(k, "up")
+}
+
+fn tap_key(k, hold) {
+    key_down(k)
+    wait hold
+    key_up(k)
+}
+
+fn set_button(b, state) {
+    gamepad button $state $b
+}
+
+fn press_button(b) {
+    set_button(b, "down")
+}
+
+fn release_button(b) {
+    set_button(b, "up")
+}
+
+fn tap_button(b, hold) {
+    press_button(b)
+    wait hold
+    release_button(b)
+}
+
+; Presses two buttons at the same time, holds both for `hold` frames, then
+; releases both. Useful for two-button inputs like menu shortcuts.
+fn chord_button(b1, b2, hold) {
+    press_button(b1)
+    press_button(b2)
+    wait hold
+    release_button(b1)
+    release_button(b2)
+}
+
+; Analog triggers (trigger_left / trigger_right) go through `gamepad axis`,
+; not `gamepad button` - amount is 0-255.
+fn set_trigger(axis, amount) {
+    gamepad axis $axis $amount
+}
+
+fn press_trigger(axis) {
+    set_trigger(axis, 255)
+}
+
+fn release_trigger(axis) {
+    set_trigger(axis, 0)
+}
+
+fn tap_trigger(axis, hold) {
+    press_trigger(axis)
+    wait hold
+    release_trigger(axis)
+}
+
+; Same as tap_trigger but with a partial pull amount (0-255), e.g. for a
+; light trigger tap instead of a full press.
+fn tap_trigger_amount(axis, amount, hold) {
+    set_trigger(axis, amount)
+    wait hold
+    release_trigger(axis)
+}
+
+; Presses `button`/`k` `count` times: `hold` frames down, `gap` frames apart.
+fn mash_button(button, hold, gap, count) {
+    repeat count {
+        tap_button(button, hold)
+        wait gap
+    }
+}
+
+fn mash_key(k, hold, gap, count) {
+    repeat count {
+        tap_key(k, hold)
+        wait gap
+    }
+}

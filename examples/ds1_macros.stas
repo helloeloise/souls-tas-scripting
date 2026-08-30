@@ -1,0 +1,32 @@
+; Demonstrates the std/ds1, std/movement and std/buttons helpers together.
+; Also exercises the "diamond" import case: std/ds1 imports std/movement,
+; which imports std/gamepad - and this script imports std/gamepad directly
+; too. That must compile without a duplicate-function error.
+; Compile with:  cargo run -- examples\ds1_macros.stas
+
+import "std/gamepad"
+import "std/ds1"
+
+await focus
+wait 20
+
+; Roll north four times, half a second apart.
+repeat 4 {
+    roll_ds1(0, 2)
+    wait 30
+}
+stick_neutral("left")
+
+; Turn the camera and take a light + heavy swing.
+camera_pan(90, 1, 15)
+attack_right(2)
+wait 30
+attack_right_heavy(2)
+wait 30
+
+; Two-hand the weapon, block briefly (parry attempt), then chug an Estus.
+twohand(2)
+wait 10
+guard(3)
+wait 30
+use_item(2)

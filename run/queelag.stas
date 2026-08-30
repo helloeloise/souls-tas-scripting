@@ -1,0 +1,29 @@
+import "std/all"
+fn log_in_character() {
+    tap_button("start", 2)
+    wait 2
+    tap_button("a", 2)
+    wait 10
+    tap_button("a", 2)
+    wait 30
+    tap_button("a",2)
+    await ingame
+
+}
+fn enter_foggwall() {
+    left_stick_up(1)
+    wait 60
+    tap_button("a", 2)
+    wait 1
+    await cutscene 
+    tap_button("start",1)
+    await ingame
+    left_stick_up(1)
+    wait 200
+    left_stick_up(0)
+}
+
+nothing
+wait 60
+log_in_character()
+enter_foggwall()

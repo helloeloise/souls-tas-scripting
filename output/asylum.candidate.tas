@@ -1,0 +1,182 @@
+0 nothing
++100 gamepad button down start
++1 gamepad button up start
++10 gamepad button down dpad_up
++1 gamepad button up dpad_up
++10 gamepad button down a
++2 gamepad button up a
++10 gamepad button down a
++2 gamepad button up a
++40 gamepad button down a
++2 gamepad button up a
++10 gamepad button down a
++2 gamepad button up a
++10 key down T
++2 key up T
++0 key down A
++2 key up A
++0 key down S
++2 key up S
++5 key down ENTER
++4 key up ENTER
++2 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++5 gamepad button down a
++2 gamepad button up a
++10 gamepad button down dpad_up
++2 gamepad button up dpad_up
++1 gamepad button down dpad_up
++2 gamepad button up dpad_up
++2 gamepad button down a
++2 gamepad button up a
++2 gamepad button down a
++2 gamepad button up a
++2 gamepad button down dpad_down
++2 gamepad button up dpad_down
++1 gamepad button down dpad_down
++2 gamepad button up dpad_down
++2 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++1 gamepad button down a
++2 gamepad button up a
++2 gamepad button down dpad_left
++2 gamepad button up dpad_left
++2 gamepad button down a
++2 gamepad button up a
++2 await cutscene
++2 gamepad button down start
++1 gamepad button up start
++0 await no_cutscene
++1 await cutscene
++0 gamepad button down start
++1 gamepad button up start
++0 await ingame
++0 gamepad button down b
++0 gamepad stick left 0 1
++0 gamepad stick right 270 0.5
++25 gamepad stick right 270 0
++20 gamepad button down y
++2 gamepad button up y
++20 gamepad button down a
++2 gamepad button up a
++20 gamepad stick right 270 0.5
++0 gamepad button down a
++2 gamepad button up a
++22 gamepad button down a
++2 gamepad button up a
++0 gamepad button down shoulder_left
++4 gamepad stick right 270 0
++60 gamepad button up shoulder_left
++0 gamepad button down b
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++10 gamepad stick left 0 0
++1 gamepad stick left 0 1
++1 gamepad button down shoulder_left
++1 gamepad button up shoulder_left
++0 gamepad stick left 0 1.000
++60 gamepad stick left 0 0.005
++0 gamepad stick left 0 1.000
++20 gamepad stick right 36 1.000
++10 gamepad stick right 48 0.029
++10 gamepad stick left 180 0.009
++0 pause input

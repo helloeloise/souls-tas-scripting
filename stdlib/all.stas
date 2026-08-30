@@ -1,0 +1,9 @@
+; Imports every bundled std/ module in one go, for scripts that want the
+; whole standard library available without importing each piece separately.
+; Imports are deduplicated, so this is safe to combine with explicit imports
+; of the individual modules too.
+
+import "std/gamepad"
+import "std/buttons"
+import "std/movement"
+import "std/ds1"

@@ -1,0 +1,118 @@
+; Standard gamepad stick helpers.
+; Angles are clockwise from up: up=0, right=90, down=180, left=270.
+
+fn left_stick(angle, amount) {
+    gamepad stick left $angle $amount
+}
+
+fn right_stick(angle, amount) {
+    gamepad stick right $angle $amount
+}
+
+fn left_stick_up(amount) {
+    left_stick(0, amount)
+}
+
+fn left_stick_up_right(amount) {
+    left_stick(45, amount)
+}
+
+fn left_stick_right(amount) {
+    left_stick(90, amount)
+}
+
+fn left_stick_down_right(amount) {
+    left_stick(135, amount)
+}
+
+fn left_stick_down(amount) {
+    left_stick(180, amount)
+}
+
+fn left_stick_down_left(amount) {
+    left_stick(225, amount)
+}
+
+fn left_stick_left(amount) {
+    left_stick(270, amount)
+}
+
+fn left_stick_up_left(amount) {
+    left_stick(315, amount)
+}
+
+fn right_stick_up(amount) {
+    right_stick(0, amount)
+}
+
+fn right_stick_up_right(amount) {
+    right_stick(45, amount)
+}
+
+fn right_stick_right(amount) {
+    right_stick(90, amount)
+}
+
+fn right_stick_down_right(amount) {
+    right_stick(135, amount)
+}
+
+fn right_stick_down(amount) {
+    right_stick(180, amount)
+}
+
+fn right_stick_down_left(amount) {
+    right_stick(225, amount)
+}
+
+fn right_stick_left(amount) {
+    right_stick(270, amount)
+}
+
+fn right_stick_up_left(amount) {
+    right_stick(315, amount)
+}
+
+fn left_stick_direction(direction, amount) {
+    if direction == "up" {
+        left_stick_up(amount)
+    } else if direction == "up_right" {
+        left_stick_up_right(amount)
+    } else if direction == "right" {
+        left_stick_right(amount)
+    } else if direction == "down_right" {
+        left_stick_down_right(amount)
+    } else if direction == "down" {
+        left_stick_down(amount)
+    } else if direction == "down_left" {
+        left_stick_down_left(amount)
+    } else if direction == "left" {
+        left_stick_left(amount)
+    } else if direction == "up_left" {
+        left_stick_up_left(amount)
+    } else {
+        print "unknown left stick direction"
+    }
+}
+
+fn right_stick_direction(direction, amount) {
+    if direction == "up" {
+        right_stick_up(amount)
+    } else if direction == "up_right" {
+        right_stick_up_right(amount)
+    } else if direction == "right" {
+        right_stick_right(amount)
+    } else if direction == "down_right" {
+        right_stick_down_right(amount)
+    } else if direction == "down" {
+        right_stick_down(amount)
+    } else if direction == "down_left" {
+        right_stick_down_left(amount)
+    } else if direction == "left" {
+        right_stick_left(amount)
+    } else if direction == "up_left" {
+        right_stick_up_left(amount)
+    } else {
+        print "unknown right stick direction"
+    }
+}

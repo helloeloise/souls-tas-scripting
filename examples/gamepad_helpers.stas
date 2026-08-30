@@ -1,0 +1,20 @@
+import "std/gamepad"
+
+await focus
+wait 10
+
+; Direct angle control: SoulsTAS angles are clockwise from up.
+left_stick(0, 1)
+wait 20
+left_stick(90, 0.5)
+wait 20
+
+; Named direction helpers.
+right_stick_up_right(1)
+wait 10
+right_stick_direction("down_left", 0.75)
+wait 10
+
+; Reset both sticks to neutral.
+left_stick(0, 0)
+right_stick(0, 0)

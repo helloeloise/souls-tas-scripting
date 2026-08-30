@@ -1,0 +1,3 @@
+; Probe: await focus only
+0 await focus
++1 nothing

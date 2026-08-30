@@ -1,0 +1,55 @@
+import "std/moveswap"
+
+fn initiate_roll_bow_two_hand(){
+    left_stick_up(1)
+    gamepad button down b
+    wait 1
+    gamepad button up b
+    wait 6
+    gamepad button down shoulder_left
+    wait 1
+    gamepad button up shoulder_left
+}
+
+
+
+fn go_to_equipment_menu() {
+    gamepad button down start
+    wait 1
+    gamepad button up start
+    wait 5
+    gamepad button down dpad_right
+    wait 1
+    gamepad button up dpad_right
+    wait 1 
+    gamepad button down a
+    wait 1
+    gamepad button up a
+    wait 1
+    gamepad button down dpad_down
+    wait 1
+    gamepad button up dpad_down
+    wait 1
+    gamepad button down a
+    wait 1
+    gamepad button up a
+    wait 2
+    gamepad button down dpad_up
+    wait 1
+    gamepad button up dpad_up
+    wait 1
+    gamepad button down a
+    wait 1
+    gamepad button up a
+    wait 1
+    gamepad button down start
+    wait 1
+    gamepad button up start
+
+}
+
+
+
+await focus
+wait 5
+first_tier_roll_moveswap()

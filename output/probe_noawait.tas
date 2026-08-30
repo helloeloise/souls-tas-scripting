@@ -1,0 +1,4 @@
+; Probe: does SoulsTAS advance frames at all?
+0 nothing
++60 nothing
++60 nothing
