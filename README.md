@@ -130,12 +130,12 @@ compiles to
 
 ```
 0 await focus
-20 key down w
-20 key down space
-22 key up space
-44 key up w
-48 key down w
-48 key down space
-50 key up space
-72 key up w
++20 key down w
++0 key down space
++2 key up space
++22 key up w
++4 key down w
++0 key down space
++2 key up space
++22 key up w
 ```
