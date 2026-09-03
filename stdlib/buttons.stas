@@ -2,6 +2,23 @@
 ; analog triggers. No game-specific knowledge lives here - see std/ds1 for
 ; Dark Souls button names and higher level macros built on top of these.
 
+const BTN_A = "a"
+const BTN_B = "b"
+const BTN_X = "x"
+const BTN_Y = "y"
+const BTN_L1 = "l1"
+const BTN_L2 = "l2"
+const BTN_L3 = "l3"
+const BTN_R1 = "r1"
+const BTN_R2 = "r2"
+const BTN_R3 = "r3"
+const BTN_UP = "up"
+const BTN_DOWN = "down"
+const BTN_LEFT = "left"
+const BTN_RIGHT = "right"
+const BTN_START = "start"
+const BTN_SELECT = "select"
+
 fn set_key(k, state) {
     key $state $k
 }
@@ -32,10 +49,14 @@ fn release_button(b) {
     set_button(b, "up")
 }
 
-fn tap_button(b, hold) {
+fn hold_button(b, hold) {
     press_button(b)
     wait hold
     release_button(b)
+}
+
+fn tap_button(b) {
+    hold_button(b, 1)
 }
 
 ; Presses two buttons at the same time, holds both for `hold` frames, then
@@ -62,15 +83,20 @@ fn release_trigger(axis) {
     set_trigger(axis, 0)
 }
 
-fn tap_trigger(axis, hold) {
+fn hold_trigger(axis, hold) {
     press_trigger(axis)
     wait hold
     release_trigger(axis)
 }
 
-; Same as tap_trigger but with a partial pull amount (0-255), e.g. for a
+fn tap_trigger(axis) {
+    hold_trigger(axis, 1)
+}
+
+
+; Same as hold_trigger but with a partial pull amount (0-255), e.g. for a
 ; light trigger tap instead of a full press.
-fn tap_trigger_amount(axis, amount, hold) {
+fn hold_trigger_amount(axis, amount, hold) {
     set_trigger(axis, amount)
     wait hold
     release_trigger(axis)
@@ -90,3 +116,341 @@ fn mash_key(k, hold, gap, count) {
         wait gap
     }
 }
+
+
+; #####
+; Helper methods for all buttons for quick use
+; #####
+
+fn a_press() {
+    set_button($BTN_A, "down")
+}
+
+fn a_release() {
+    set_button($BTN_A, "up")
+}
+
+fn a_hold(hold) {
+    hold_button($BTN_A, hold)
+}
+
+fn a_tap() {
+    tap_button($BTN_A)
+}
+
+fn a() {
+    a_tap()
+}
+
+
+fn b_press() {
+    set_button($BTN_B, "down")
+}
+
+fn b_release() {
+    set_button($BTN_B, "up")
+}
+
+fn b_hold(hold) {
+    hold_button($BTN_B, hold)
+}
+
+fn b_tap() {
+    tap_button($BTN_B)
+}
+
+fn b() {
+    b_tap()
+}
+
+
+fn x_press() {
+    set_button($BTN_X, "down")
+}
+
+fn x_release() {
+    set_button($BTN_X, "up")
+}
+
+fn x_hold(hold) {
+    hold_button($BTN_X, hold)
+}
+
+fn x_tap() {
+    tap_button($BTN_X)
+}
+
+fn x() {
+    x_tap()
+}
+
+
+fn y_press() {
+    set_button($BTN_Y, "down")
+}
+
+fn y_release() {
+    set_button($BTN_Y, "up")
+}
+
+fn y_hold(hold) {
+    hold_button($BTN_Y, hold)
+}
+
+fn y_tap() {
+    tap_button($BTN_Y)
+}
+
+fn y() {
+    y_tap()
+}
+
+
+fn l1_press() {
+    set_button($BTN_L1, "down")
+}
+
+fn l1_release() {
+    set_button($BTN_L1, "up")
+}
+
+fn l1_hold(hold) {
+    hold_button($BTN_L1, hold)
+}
+
+fn l1_tap() {
+    tap_button($BTN_L1)
+}
+
+fn l1() {
+    l1_tap()
+}
+
+fn l2_press() {
+    press_trigger($BTN_L2)
+}
+
+fn l2_release() {
+    release_trigger($BTN_L2)
+}
+
+fn l2_hold(hold) {
+    hold_trigger($BTN_L2, hold)
+}
+
+fn l2_tap() {
+    tap_trigger($BTN_L2)
+}
+
+fn l2() {
+    l2_tap()
+}
+
+fn l3_press() {
+    set_button($BTN_L3, "down")
+}
+
+fn l3_release() {
+    set_button($BTN_L3, "up")
+}
+
+fn l3_hold(hold) {
+    hold_button($BTN_L3, hold)
+}
+
+fn l3_tap() {
+    tap_button($BTN_L3)
+}
+
+fn l3() {
+    l3_tap()
+}
+
+
+fn r1_press() {
+    set_button($BTN_R1, "down")
+}
+
+fn r1_release() {
+    set_button($BTN_R1, "up")
+}
+
+fn r1_hold(hold) {
+    hold_button($BTN_R1, hold)
+}
+
+fn r1_tap() {
+    tap_button($BTN_R1)
+}
+
+fn r1() {
+    r1_tap()
+}
+
+fn r2_press() {
+    press_trigger($BTN_R2)
+}
+
+fn r2_release() {
+    release_trigger($BTN_R2)
+}
+
+fn r2_hold(hold) {
+    hold_trigger($BTN_R2, hold)
+}
+
+fn r2_tap() {
+    tap_trigger($BTN_R2)
+}
+
+fn r2() {
+    l2_tap()
+}
+
+fn r3_press() {
+    set_button($BTN_R3, "down")
+}
+
+fn r3_release() {
+    set_button($BTN_R3, "up")
+}
+
+fn r3_hold(hold) {
+    hold_button($BTN_R3, hold)
+}
+
+fn r3_tap() {
+    tap_button($BTN_R3)
+}
+
+fn r3() {
+    l3_tap()
+}
+
+
+fn up_press() {
+    set_button($BTN_UP, "down")
+}
+
+fn up_release() {
+    set_button($BTN_UP, "up")
+}
+
+fn up_hold(hold) {
+    hold_button($BTN_UP, hold)
+}
+
+fn up_tap() {
+    tap_button($BTN_UP)
+}
+
+fn up() {
+    up_tap()
+}
+
+fn down_press() {
+    set_button($BTN_DOWN, "down")
+}
+
+fn down_release() {
+    set_button($BTN_DOWN, "up")
+}
+
+fn down_hold(hold) {
+    hold_button($BTN_DOWN, hold)
+}
+
+fn down_tap() {
+    tap_button($BTN_DOWN)
+}
+
+fn down() {
+    down_tap()
+}
+
+
+fn left_press() {
+    set_button($BTN_LEFT, "down")
+}
+
+fn left_release() {
+    set_button($BTN_LEFT, "up")
+}
+
+fn left_hold(hold) {
+    hold_button($BTN_LEFT, hold)
+}
+
+fn left_tap() {
+    tap_button($BTN_LEFT)
+}
+
+fn left() {
+    left_tap()
+}
+
+fn right_press() {
+    set_button($BTN_RIGHT, "down")
+}
+
+fn right_release() {
+    set_button($BTN_RIGHT, "up")
+}
+
+fn right_hold(hold) {
+    hold_button($BTN_RIGHT, hold)
+}
+
+fn right_tap() {
+    tap_button($BTN_RIGHT)
+}
+
+fn right() {
+    right_tap()
+}
+
+
+fn start_press() {
+    set_button($BTN_START, "down")
+}
+
+fn start_release() {
+    set_button($BTN_START, "up")
+}
+
+fn start_hold(hold) {
+    hold_button($BTN_START, hold)
+}
+
+fn start_tap() {
+    tap_button($BTN_START)
+}
+
+fn start() {
+    start_tap()
+}
+
+fn select_press() {
+    set_button($BTN_SELECT, "down")
+}
+
+fn select_release() {
+    set_button($BTN_SELECT, "up")
+}
+
+fn select_hold(hold) {
+    hold_button($BTN_SELECT, hold)
+}
+
+fn select_tap() {
+    tap_button($BTN_SELECT)
+}
+
+fn select() {
+    select_tap()
+}
+
+
+
+
+

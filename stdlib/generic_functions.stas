@@ -1,0 +1,35 @@
+; Movement and camera helpers built on top of std/gamepad's stick/angle
+; primitives and std/buttons' press/tap helpers.
+
+import "std/gamepad"
+import "std/buttons"
+
+; A roll/dodge: tilts the left stick toward `angle`, waits one frame for the
+; direction to register, then taps `button`.
+fn roll_generic(angle, button) {
+    left_stick(angle, 1)
+    wait 1
+    tap_button(button)
+    left_stick(0, 0)
+}
+
+; Same as roll(), but takes a named direction ("up", "up_right", "right", ...)
+; like left_stick_direction() from std/gamepad instead of a raw angle.
+fn roll_direction_generic(direction, button) {
+    left_stick_direction(direction, 1)
+    wait 1
+    tap_button(button)
+    left_stick(0, 0)
+}
+
+; Pans the right stick (camera) toward `angle` for `frames`, then recenters.
+fn camera_pan(angle, amount, frames) {
+    right_stick_hold(angle, amount, frames)
+}
+
+; Moves the mouse by (dx, dy) and waits `frames` - convenience wrapper around
+; `mouse move` for keyboard+mouse scripts.
+fn mouse_look(dx, dy, frames) {
+    mouse move $dx $dy
+    wait frames
+}
