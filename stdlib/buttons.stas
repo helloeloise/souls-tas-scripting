@@ -83,15 +83,20 @@ fn release_trigger(axis) {
     set_trigger(axis, 0)
 }
 
-fn tap_trigger(axis, hold) {
+fn hold_trigger(axis, hold) {
     press_trigger(axis)
     wait hold
     release_trigger(axis)
 }
 
-; Same as tap_trigger but with a partial pull amount (0-255), e.g. for a
+fn tap_trigger(axis) {
+    hold_trigger(axis, 1)
+}
+
+
+; Same as hold_trigger but with a partial pull amount (0-255), e.g. for a
 ; light trigger tap instead of a full press.
-fn tap_trigger_amount(axis, amount, hold) {
+fn hold_trigger_amount(axis, amount, hold) {
     set_trigger(axis, amount)
     wait hold
     release_trigger(axis)
@@ -222,19 +227,19 @@ fn l1() {
 }
 
 fn l2_press() {
-    set_button($BTN_L2, "down")
+    press_trigger($BTN_L2)
 }
 
 fn l2_release() {
-    set_button($BTN_L2, "up")
+    release_trigger($BTN_L2)
 }
 
 fn l2_hold(hold) {
-    hold_button($BTN_L2, hold)
+    hold_trigger($BTN_L2, hold)
 }
 
 fn l2_tap() {
-    tap_button($BTN_L2)
+    tap_trigger($BTN_L2)
 }
 
 fn l2() {
@@ -283,19 +288,19 @@ fn r1() {
 }
 
 fn r2_press() {
-    set_button($BTN_R2, "down")
+    press_trigger($BTN_R2)
 }
 
 fn r2_release() {
-    set_button($BTN_R2, "up")
+    release_trigger($BTN_R2)
 }
 
 fn r2_hold(hold) {
-    hold_button($BTN_R2, hold)
+    hold_trigger($BTN_R2, hold)
 }
 
 fn r2_tap() {
-    tap_button($BTN_R2)
+    tap_trigger($BTN_R2)
 }
 
 fn r2() {
