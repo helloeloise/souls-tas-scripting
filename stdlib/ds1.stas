@@ -27,6 +27,17 @@ fn roll_direction(direction) {
     roll_direction_generic(direction, $BTN_ROLL)
 }
 
+; Assumes the player is already sprinting
+fn jump(angle) {
+    release_button($BTN_ROLL)
+    wait 1
+    press_button($BTN_ROLL)
+    left_stick(angle, 1)
+    wait 2
+    release_button($BTN_ROLL)
+    left_stick(0, 0)
+}
+
 fn attack_right() {
     tap_button($BTN_ATTACK_R)
 }

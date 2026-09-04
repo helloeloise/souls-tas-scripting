@@ -10,6 +10,7 @@ fn roll_generic(angle, button) {
     left_stick(angle, 1)
     wait 1
     tap_button(button)
+    wait 1
     left_stick(0, 0)
 }
 
