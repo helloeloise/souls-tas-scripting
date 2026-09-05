@@ -9,6 +9,14 @@ fn right_stick(angle, amount) {
     gamepad stick right $angle $amount
 }
 
+fn left_stick_neutral() {
+    left_stick(0, 0)
+}
+
+fn right_stick_neutral() {
+    right_stick(0, 0)
+}
+
 fn left_stick_up(amount) {
     left_stick(0, amount)
 }

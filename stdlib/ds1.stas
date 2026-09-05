@@ -27,6 +27,17 @@ fn roll_direction(direction) {
     roll_direction_generic(direction, $BTN_ROLL)
 }
 
+; Assumes the player is already sprinting
+fn jump(angle) {
+    release_button($BTN_ROLL)
+    wait 1
+    press_button($BTN_ROLL)
+    left_stick(angle, 1)
+    wait 2
+    release_button($BTN_ROLL)
+    left_stick(0, 0)
+}
+
 fn attack_right() {
     tap_button($BTN_ATTACK_R)
 }
@@ -143,18 +154,12 @@ fn moveswap() {
     start()
 }
 
-; "TAS-sprint": wiggles the left stick between full tilt and neutral while
-; holding roll and tapping l1 (BTN_ATTACK_L), covering ground faster than the
-; game's normal max run speed. `angle` is the stick direction (see
-; std/gamepad), `cycles` is the total number of hold/release/tap repeats to
-; perform - the first one holds the stick for 30 frames to reach full run
-; speed, every following one only needs a 10-frame hold to maintain it,
-; matching a captured reference .tas of the technique. Caller is expected to
-; have already done `await focus` (and any settling wait) before calling
-; this - it doesn't do that itself.
-fn tas_sprint(angle, cycles) {
+; TAS sprint wiggles the left stick between full tilt and neutral while
+; holding sprint and tapping L1, covering ground faster than the
+; game's normal max run speed. `angle` is the stick direction,
+;`cycles` is the total number of hold/release/tap repeats to perform.
+fn tas_sprint_start(angle, cycles) {
     b_press()
-    wait 1
     left_stick(angle, 1)
     wait 1
     l1()
@@ -166,7 +171,17 @@ fn tas_sprint(angle, cycles) {
         wait 1
         l1()
     }
-    wait 1
+}
+
+fn tas_sprint(angle, cycles) {
+    repeat cycles - 1 {
+        wait 10
+        left_stick(angle, 0)
+        wait 1
+        left_stick(angle, 1)
+        wait 1
+        l1()
+    }
 }
 
 fn first_roll_tier_moveswap()

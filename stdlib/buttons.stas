@@ -31,10 +31,14 @@ fn key_up(k) {
     set_key(k, "up")
 }
 
-fn tap_key(k, hold) {
+fn hold_key(k, hold) {
     key_down(k)
     wait hold
     key_up(k)
+}
+
+fn tap_key(k) {
+    hold_key(k, 1)
 }
 
 fn set_button(b, state) {
